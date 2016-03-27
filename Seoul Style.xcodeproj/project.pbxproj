@@ -1,0 +1,522 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AF9D43A61CA81FA4007852CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9D43A51CA81FA4007852CF /* AppDelegate.swift */; };
+		AF9D43A81CA81FA4007852CF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9D43A71CA81FA4007852CF /* ViewController.swift */; };
+		AF9D43AB1CA81FA4007852CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF9D43A91CA81FA4007852CF /* Main.storyboard */; };
+		AF9D43AE1CA81FA4007852CF /* Seoul_Style.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AF9D43AC1CA81FA4007852CF /* Seoul_Style.xcdatamodeld */; };
+		AF9D43B01CA81FA4007852CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF9D43AF1CA81FA4007852CF /* Assets.xcassets */; };
+		AF9D43B31CA81FA4007852CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF9D43B11CA81FA4007852CF /* LaunchScreen.storyboard */; };
+		AF9D43BE1CA81FA4007852CF /* Seoul_StyleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9D43BD1CA81FA4007852CF /* Seoul_StyleTests.swift */; };
+		AF9D43C91CA81FA4007852CF /* Seoul_StyleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9D43C81CA81FA4007852CF /* Seoul_StyleUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AF9D43BA1CA81FA4007852CF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AF9D439A1CA81FA4007852CF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AF9D43A11CA81FA4007852CF;
+			remoteInfo = "Seoul Style";
+		};
+		AF9D43C51CA81FA4007852CF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AF9D439A1CA81FA4007852CF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AF9D43A11CA81FA4007852CF;
+			remoteInfo = "Seoul Style";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AF9D43A21CA81FA4007852CF /* Seoul Style.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Seoul Style.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF9D43A51CA81FA4007852CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AF9D43A71CA81FA4007852CF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AF9D43AA1CA81FA4007852CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AF9D43AD1CA81FA4007852CF /* Seoul_Style.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Seoul_Style.xcdatamodel; sourceTree = "<group>"; };
+		AF9D43AF1CA81FA4007852CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AF9D43B21CA81FA4007852CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AF9D43B41CA81FA4007852CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF9D43B91CA81FA4007852CF /* Seoul StyleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Seoul StyleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF9D43BD1CA81FA4007852CF /* Seoul_StyleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seoul_StyleTests.swift; sourceTree = "<group>"; };
+		AF9D43BF1CA81FA4007852CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF9D43C41CA81FA4007852CF /* Seoul StyleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Seoul StyleUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF9D43C81CA81FA4007852CF /* Seoul_StyleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seoul_StyleUITests.swift; sourceTree = "<group>"; };
+		AF9D43CA1CA81FA4007852CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AF9D439F1CA81FA4007852CF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF9D43B61CA81FA4007852CF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF9D43C11CA81FA4007852CF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AF9D43991CA81FA4007852CF = {
+			isa = PBXGroup;
+			children = (
+				AF9D43A41CA81FA4007852CF /* Seoul Style */,
+				AF9D43BC1CA81FA4007852CF /* Seoul StyleTests */,
+				AF9D43C71CA81FA4007852CF /* Seoul StyleUITests */,
+				AF9D43A31CA81FA4007852CF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AF9D43A31CA81FA4007852CF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AF9D43A21CA81FA4007852CF /* Seoul Style.app */,
+				AF9D43B91CA81FA4007852CF /* Seoul StyleTests.xctest */,
+				AF9D43C41CA81FA4007852CF /* Seoul StyleUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AF9D43A41CA81FA4007852CF /* Seoul Style */ = {
+			isa = PBXGroup;
+			children = (
+				AF9D43A51CA81FA4007852CF /* AppDelegate.swift */,
+				AF9D43A71CA81FA4007852CF /* ViewController.swift */,
+				AF9D43A91CA81FA4007852CF /* Main.storyboard */,
+				AF9D43AF1CA81FA4007852CF /* Assets.xcassets */,
+				AF9D43B11CA81FA4007852CF /* LaunchScreen.storyboard */,
+				AF9D43B41CA81FA4007852CF /* Info.plist */,
+				AF9D43AC1CA81FA4007852CF /* Seoul_Style.xcdatamodeld */,
+			);
+			path = "Seoul Style";
+			sourceTree = "<group>";
+		};
+		AF9D43BC1CA81FA4007852CF /* Seoul StyleTests */ = {
+			isa = PBXGroup;
+			children = (
+				AF9D43BD1CA81FA4007852CF /* Seoul_StyleTests.swift */,
+				AF9D43BF1CA81FA4007852CF /* Info.plist */,
+			);
+			path = "Seoul StyleTests";
+			sourceTree = "<group>";
+		};
+		AF9D43C71CA81FA4007852CF /* Seoul StyleUITests */ = {
+			isa = PBXGroup;
+			children = (
+				AF9D43C81CA81FA4007852CF /* Seoul_StyleUITests.swift */,
+				AF9D43CA1CA81FA4007852CF /* Info.plist */,
+			);
+			path = "Seoul StyleUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AF9D43A11CA81FA4007852CF /* Seoul Style */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AF9D43CD1CA81FA4007852CF /* Build configuration list for PBXNativeTarget "Seoul Style" */;
+			buildPhases = (
+				AF9D439E1CA81FA4007852CF /* Sources */,
+				AF9D439F1CA81FA4007852CF /* Frameworks */,
+				AF9D43A01CA81FA4007852CF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Seoul Style";
+			productName = "Seoul Style";
+			productReference = AF9D43A21CA81FA4007852CF /* Seoul Style.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AF9D43B81CA81FA4007852CF /* Seoul StyleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AF9D43D01CA81FA4007852CF /* Build configuration list for PBXNativeTarget "Seoul StyleTests" */;
+			buildPhases = (
+				AF9D43B51CA81FA4007852CF /* Sources */,
+				AF9D43B61CA81FA4007852CF /* Frameworks */,
+				AF9D43B71CA81FA4007852CF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AF9D43BB1CA81FA4007852CF /* PBXTargetDependency */,
+			);
+			name = "Seoul StyleTests";
+			productName = "Seoul StyleTests";
+			productReference = AF9D43B91CA81FA4007852CF /* Seoul StyleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		AF9D43C31CA81FA4007852CF /* Seoul StyleUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AF9D43D31CA81FA4007852CF /* Build configuration list for PBXNativeTarget "Seoul StyleUITests" */;
+			buildPhases = (
+				AF9D43C01CA81FA4007852CF /* Sources */,
+				AF9D43C11CA81FA4007852CF /* Frameworks */,
+				AF9D43C21CA81FA4007852CF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AF9D43C61CA81FA4007852CF /* PBXTargetDependency */,
+			);
+			name = "Seoul StyleUITests";
+			productName = "Seoul StyleUITests";
+			productReference = AF9D43C41CA81FA4007852CF /* Seoul StyleUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AF9D439A1CA81FA4007852CF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Nicholas Park";
+				TargetAttributes = {
+					AF9D43A11CA81FA4007852CF = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					AF9D43B81CA81FA4007852CF = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = AF9D43A11CA81FA4007852CF;
+					};
+					AF9D43C31CA81FA4007852CF = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = AF9D43A11CA81FA4007852CF;
+					};
+				};
+			};
+			buildConfigurationList = AF9D439D1CA81FA4007852CF /* Build configuration list for PBXProject "Seoul Style" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AF9D43991CA81FA4007852CF;
+			productRefGroup = AF9D43A31CA81FA4007852CF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AF9D43A11CA81FA4007852CF /* Seoul Style */,
+				AF9D43B81CA81FA4007852CF /* Seoul StyleTests */,
+				AF9D43C31CA81FA4007852CF /* Seoul StyleUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AF9D43A01CA81FA4007852CF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF9D43B31CA81FA4007852CF /* LaunchScreen.storyboard in Resources */,
+				AF9D43B01CA81FA4007852CF /* Assets.xcassets in Resources */,
+				AF9D43AB1CA81FA4007852CF /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF9D43B71CA81FA4007852CF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF9D43C21CA81FA4007852CF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AF9D439E1CA81FA4007852CF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF9D43A81CA81FA4007852CF /* ViewController.swift in Sources */,
+				AF9D43AE1CA81FA4007852CF /* Seoul_Style.xcdatamodeld in Sources */,
+				AF9D43A61CA81FA4007852CF /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF9D43B51CA81FA4007852CF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF9D43BE1CA81FA4007852CF /* Seoul_StyleTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF9D43C01CA81FA4007852CF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF9D43C91CA81FA4007852CF /* Seoul_StyleUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AF9D43BB1CA81FA4007852CF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AF9D43A11CA81FA4007852CF /* Seoul Style */;
+			targetProxy = AF9D43BA1CA81FA4007852CF /* PBXContainerItemProxy */;
+		};
+		AF9D43C61CA81FA4007852CF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AF9D43A11CA81FA4007852CF /* Seoul Style */;
+			targetProxy = AF9D43C51CA81FA4007852CF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AF9D43A91CA81FA4007852CF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AF9D43AA1CA81FA4007852CF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AF9D43B11CA81FA4007852CF /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AF9D43B21CA81FA4007852CF /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AF9D43CB1CA81FA4007852CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AF9D43CC1CA81FA4007852CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AF9D43CE1CA81FA4007852CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Seoul Style/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.seoulstyle.Seoul-Style";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AF9D43CF1CA81FA4007852CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Seoul Style/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.seoulstyle.Seoul-Style";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		AF9D43D11CA81FA4007852CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Seoul StyleTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.seoulstyle.Seoul-StyleTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Seoul Style.app/Seoul Style";
+			};
+			name = Debug;
+		};
+		AF9D43D21CA81FA4007852CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Seoul StyleTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.seoulstyle.Seoul-StyleTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Seoul Style.app/Seoul Style";
+			};
+			name = Release;
+		};
+		AF9D43D41CA81FA4007852CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Seoul StyleUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.seoulstyle.Seoul-StyleUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Seoul Style";
+			};
+			name = Debug;
+		};
+		AF9D43D51CA81FA4007852CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Seoul StyleUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.seoulstyle.Seoul-StyleUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Seoul Style";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AF9D439D1CA81FA4007852CF /* Build configuration list for PBXProject "Seoul Style" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF9D43CB1CA81FA4007852CF /* Debug */,
+				AF9D43CC1CA81FA4007852CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AF9D43CD1CA81FA4007852CF /* Build configuration list for PBXNativeTarget "Seoul Style" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF9D43CE1CA81FA4007852CF /* Debug */,
+				AF9D43CF1CA81FA4007852CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		AF9D43D01CA81FA4007852CF /* Build configuration list for PBXNativeTarget "Seoul StyleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF9D43D11CA81FA4007852CF /* Debug */,
+				AF9D43D21CA81FA4007852CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		AF9D43D31CA81FA4007852CF /* Build configuration list for PBXNativeTarget "Seoul StyleUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF9D43D41CA81FA4007852CF /* Debug */,
+				AF9D43D51CA81FA4007852CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		AF9D43AC1CA81FA4007852CF /* Seoul_Style.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				AF9D43AD1CA81FA4007852CF /* Seoul_Style.xcdatamodel */,
+			);
+			currentVersion = AF9D43AD1CA81FA4007852CF /* Seoul_Style.xcdatamodel */;
+			path = Seoul_Style.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = AF9D439A1CA81FA4007852CF /* Project object */;
+}
