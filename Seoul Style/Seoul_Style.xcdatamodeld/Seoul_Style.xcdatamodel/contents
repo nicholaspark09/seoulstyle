@@ -1,4 +1,102 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15E65" minimumToolsVersion="Automatic">
+    <entity name="AttributeValue" representedClassName=".AttributeValue" syncable="YES">
+        <attribute name="attributegroup" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="country" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="details" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="info" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="locale" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="user" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Cart" representedClassName=".Cart" syncable="YES">
+        <attribute name="delivered" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="info" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="items" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="paid" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="session" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="subtotal" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="taxes" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="total" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="user" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Day" representedClassName=".Day" syncable="YES">
+        <attribute name="body" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="country" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="currentday" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gender" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="info" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="user" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="hasFeatures" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Feature" inverseName="belongsToDay" inverseEntity="Feature" syncable="YES"/>
+    </entity>
+    <entity name="Feature" representedClassName=".Feature" syncable="YES">
+        <attribute name="body" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="country" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="displayorder" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="info" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="user" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="belongsToDay" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Day" inverseName="hasFeatures" inverseEntity="Day" syncable="YES"/>
+    </entity>
+    <entity name="ItemCount" representedClassName=".ItemCount" syncable="YES">
+        <attribute name="attributevalue" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="style" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="total" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="user" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Page" representedClassName=".Page" syncable="YES">
+        <attribute name="country" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="displayorder" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="info" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="user" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="PageProduct" representedClassName=".PageProduct" syncable="YES">
+        <attribute name="info" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="product" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="user" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Product" representedClassName=".Product" syncable="YES">
+        <attribute name="country" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="info" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="user" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="year" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="hasPageProducts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PageProduct" syncable="YES"/>
+    </entity>
+    <entity name="ProductPrice" representedClassName=".ProductPrice" syncable="YES">
+        <attribute name="country" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="currency" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="product" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="usd" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="user" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Style" representedClassName=".Style" syncable="YES">
+        <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="info" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="product" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="user" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="AttributeValue" positionX="171" positionY="-189" width="128" height="150"/>
+        <element name="Day" positionX="126" positionY="-342" width="128" height="165"/>
+        <element name="Feature" positionX="313" positionY="-207" width="128" height="165"/>
+        <element name="ItemCount" positionX="171" positionY="-189" width="128" height="120"/>
+        <element name="Page" positionX="43" positionY="140" width="128" height="133"/>
+        <element name="PageProduct" positionX="313" positionY="-16" width="128" height="105"/>
+        <element name="Product" positionX="36" positionY="-153" width="128" height="148"/>
+        <element name="ProductPrice" positionX="180" positionY="-180" width="128" height="150"/>
+        <element name="Style" positionX="171" positionY="-189" width="128" height="120"/>
+        <element name="Cart" positionX="171" positionY="-189" width="128" height="195"/>
+    </elements>
 </model>

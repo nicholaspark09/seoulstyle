@@ -9,14 +9,29 @@
 import UIKit
 import CoreData
 
+struct SessionConstants{
+    static let DeviceAdd = "/devices/mobileadd"
+    static let DeviceKeyName = "KcultureDevice"
+    static let SessionKeyName = "KcultureSession"
+    static let SessionMethod = "/devices/createsession"
+    static let SessionNotification = "Session Notification"
+    static let SessionNotificationKeyName = "SessionKey"
+    static let CountryKey = "UserCountry"
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    
+    
+    let defaults = NSUserDefaults.standardUserDefaults()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        //Go ahead and find the session in userdeafults
+        configureCountry()
+        self.createNewSession()
         return true
     }
 
@@ -57,7 +72,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let modelURL = NSBundle.mainBundle().URLForResource("Seoul_Style", withExtension: "momd")!
         return NSManagedObjectModel(contentsOfURL: modelURL)!
     }()
-
+    
     lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator = {
         // The persistent store coordinator for the application. This implementation creates and returns a coordinator, having added the store for the application to it. This property is optional since there are legitimate error conditions that could cause the creation of the store to fail.
         // Create the coordinator and store
@@ -71,7 +86,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             var dict = [String: AnyObject]()
             dict[NSLocalizedDescriptionKey] = "Failed to initialize the application's saved data"
             dict[NSLocalizedFailureReasonErrorKey] = failureReason
-
+            
             dict[NSUnderlyingErrorKey] = error as NSError
             let wrappedError = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict)
             // Replace this with code to handle the error appropriately.
@@ -82,7 +97,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return coordinator
     }()
-
+    
     lazy var managedObjectContext: NSManagedObjectContext = {
         // Returns the managed object context for the application (which is already bound to the persistent store coordinator for the application.) This property is optional since there are legitimate error conditions that could cause the creation of the context to fail.
         let coordinator = self.persistentStoreCoordinator
@@ -90,9 +105,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         managedObjectContext.persistentStoreCoordinator = coordinator
         return managedObjectContext
     }()
-
+    
     // MARK: - Core Data Saving support
-
+    
     func saveContext () {
         if managedObjectContext.hasChanges {
             do {
@@ -106,6 +121,130 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    
+    func createNewSession(){
+        if let deviceKey = defaults.valueForKey(SessionConstants.DeviceKeyName){
+            let key = deviceKey as! String
+            createSession(key)
+            print("You already registered the device")
+        }else{
+            let modelName = UIDevice.currentDevice().modelName
+            let systemVersion = UIDevice.currentDevice().systemVersion
+            let id = UIDevice.currentDevice().identifierForVendor!.UUIDString
+            //Send this info to the server to get a session key
+            let langId = NSLocale.currentLocale().objectForKey(NSLocaleLanguageCode) as! String
+            let countryId = NSLocale.currentLocale().objectForKey(NSLocaleCountryCode) as! String
+            print("The device os is \(systemVersion) while the locale is \(langId) and the country is \(countryId)")
+            let params = ["name":modelName,"info":systemVersion,"uniqueid":id,"locale":langId,"country":countryId]
+            ServerDB.sharedInstance().httpPost(SessionConstants.DeviceAdd, parameters: params, jsonBody: "", completionHandlerForPOST: {[unowned self](data,error) in
+                if let results = data as? [String:AnyObject]{
+                    let result = results["Result"] as? String
+                    if result == "Success"{
+                        let SafeKey = results["SafeKey"] as! String
+                        self.defaults.setValue(SafeKey,forKey:SessionConstants.DeviceKeyName)
+                        self.createSession(SafeKey)
+                    }
+                }
+                })
+        }
+    }
+    
+    func createSession(devicekey: String){
+        //Check to see if there's a session key already saved
+        if defaults.valueForKey(SessionConstants.SessionKeyName) != nil{
+            //remove the session key as you need a new one
+            self.sendNotification(defaults.valueForKey(SessionConstants.SessionKeyName) as! String)
+        }else{
+            //Get a new session key
+            let params = ["device":devicekey]
+            ServerDB.sharedInstance().httpPost(SessionConstants.SessionMethod, parameters: params, jsonBody: "", completionHandlerForPOST: {[unowned self](data,error) in
+                if let results = data as? [String:AnyObject]{
+                    if let result = results["Result"] as? String{
+                        if result == "Success"{
+                            let key = results["SafeKey"] as! String
+                            self.defaults.setValue(key, forKey: SessionConstants.SessionKeyName)
+                            self.sendNotification(key)
+                        }else{
+                            print("You had no access")
+                        }
+                    }
+                }
+                })
+        }
+        
+    }
+    
+    func sendNotification(session: String){
+        let center = NSNotificationCenter.defaultCenter()
+        let notification = NSNotification(name: SessionConstants.SessionNotification, object: self, userInfo: [SessionConstants.SessionNotificationKeyName:session])
+        center.postNotification(notification)
+    }
+    
+    func getSession(){
+        if defaults.valueForKey(SessionConstants.SessionKeyName) != nil{
+            self.sendNotification(defaults.valueForKey(SessionConstants.SessionKeyName) as! String)
+        }else{
+            self.createNewSession()
+        }
+    }
+    
+    func configureCountry(){
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        let locale = NSLocale.currentLocale()
+        let country = locale.objectForKey(NSLocaleCountryCode) as? String
+        let savedCountry = userDefaults.objectForKey(SessionConstants.CountryKey) as? String
+        if savedCountry == nil{
+            //No saved country so save it
+            userDefaults.setValue(country, forKey: SessionConstants.CountryKey)
+        }else if savedCountry != country{
+            //It isn't the same so update the country
+            userDefaults.setValue(country, forKey: SessionConstants.CountryKey)
+        }
+        print("The country code you found was \(country)")
+    }
+    
 
+}
+
+public extension UIDevice {
+    
+    var modelName: String {
+        var systemInfo = utsname()
+        uname(&systemInfo)
+        let machineMirror = Mirror(reflecting: systemInfo.machine)
+        let identifier = machineMirror.children.reduce("") { identifier, element in
+            guard let value = element.value as? Int8 where value != 0 else { return identifier }
+            return identifier + String(UnicodeScalar(UInt8(value)))
+        }
+        
+        switch identifier {
+        case "iPod5,1":                                 return "iPod Touch 5"
+        case "iPod7,1":                                 return "iPod Touch 6"
+        case "iPhone3,1", "iPhone3,2", "iPhone3,3":     return "iPhone 4"
+        case "iPhone4,1":                               return "iPhone 4s"
+        case "iPhone5,1", "iPhone5,2":                  return "iPhone 5"
+        case "iPhone5,3", "iPhone5,4":                  return "iPhone 5c"
+        case "iPhone6,1", "iPhone6,2":                  return "iPhone 5s"
+        case "iPhone7,2":                               return "iPhone 6"
+        case "iPhone7,1":                               return "iPhone 6 Plus"
+        case "iPhone8,1":                               return "iPhone 6s"
+        case "iPhone8,2":                               return "iPhone 6s Plus"
+        case "iPhone8,4":                               return "iPhone SE"
+        case "iPad2,1", "iPad2,2", "iPad2,3", "iPad2,4":return "iPad 2"
+        case "iPad3,1", "iPad3,2", "iPad3,3":           return "iPad 3"
+        case "iPad3,4", "iPad3,5", "iPad3,6":           return "iPad 4"
+        case "iPad4,1", "iPad4,2", "iPad4,3":           return "iPad Air"
+        case "iPad5,3", "iPad5,4":                      return "iPad Air 2"
+        case "iPad2,5", "iPad2,6", "iPad2,7":           return "iPad Mini"
+        case "iPad4,4", "iPad4,5", "iPad4,6":           return "iPad Mini 2"
+        case "iPad4,7", "iPad4,8", "iPad4,9":           return "iPad Mini 3"
+        case "iPad5,1", "iPad5,2":                      return "iPad Mini 4"
+        case "iPad6,3", "iPad6,4", "iPad6,7", "iPad6,8":return "iPad Pro"
+        case "AppleTV5,3":                              return "Apple TV"
+        case "i386", "x86_64":                          return "Simulator"
+        default:                                        return identifier
+        }
+    }
+    
 }
 
